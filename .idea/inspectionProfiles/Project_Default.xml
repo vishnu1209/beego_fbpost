@@ -1,0 +1,25 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="12">
+            <item index="0" class="java.lang.String" itemvalue="boto3" />
+            <item index="1" class="java.lang.String" itemvalue="django-swagger-utils" />
+            <item index="2" class="java.lang.String" itemvalue="ib_common" />
+            <item index="3" class="java.lang.String" itemvalue="django" />
+            <item index="4" class="java.lang.String" itemvalue="djangorestframework-xml" />
+            <item index="5" class="java.lang.String" itemvalue="djangorestframework" />
+            <item index="6" class="java.lang.String" itemvalue="ib_users" />
+            <item index="7" class="java.lang.String" itemvalue="gspread" />
+            <item index="8" class="java.lang.String" itemvalue="nkb_groups" />
+            <item index="9" class="java.lang.String" itemvalue="step_wise_results_generators" />
+            <item index="10" class="java.lang.String" itemvalue="ib_sentry_wrapper" />
+            <item index="11" class="java.lang.String" itemvalue="ib_leaderboard" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
