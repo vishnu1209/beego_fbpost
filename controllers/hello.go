@@ -1,6 +1,8 @@
 package controllers
 
-import "github.com/astaxie/beego"
+import (
+	"github.com/astaxie/beego"
+)
 
 // HelloController represents controller for Hello-World API
 type HelloController struct {

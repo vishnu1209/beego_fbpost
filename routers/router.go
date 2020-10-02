@@ -9,35 +9,61 @@ package routers
 
 import (
 	"awesomeProject/controllers"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
+	"github.com/dgrijalva/jwt-go"
 	"strings"
+	"time"
 )
 
+type Claims struct {
+	Username string `json:"username"`
+	jwt.StandardClaims
+}
+
+var jwtKey = []byte("my_secret_key")
+
 func init() {
-	var FilterUser = func(ctx *context.Context) {
+	var Authorize = func(ctx *context.Context) {
 		//if strings.HasPrefix(ctx.Input.URL(), "/login/" ) {
 		//	return
 		//}
 		if strings.HasPrefix(ctx.Input.URL(), "/login/") ||
 			(ctx.Request.RequestURI == "/") || (ctx.Request.RequestURI == "/authorize/") {
 			// just do nothing in the filter and complete the logic in controller
+			fmt.Println("continued", time.Now())
 			return
 		}
+		tknStr := ctx.Input.Header("Authorization")
+		fmt.Println(tknStr, 2)
+		// Initialize a new instance of `Claims`
+		claims := &Claims{}
 
-		_, ok := ctx.Input.Session("uid").(int)
-		if !ok {
-			ctx.Redirect(307, "/authorize/")
+		// Parse the JWT string and store the result in `claims`.
+		// Note that we are passing the key in this method as well. This method will return an error
+		// if the token is invalid (if it has expired according to the expiry time we set on sign in),
+		// or if the signature does not match
+		tkn, err := jwt.ParseWithClaims(tknStr, claims, func(token *jwt.Token) (interface{}, error) {
+			return jwtKey, nil
+		})
+		fmt.Println(tkn, 2)
+		if err != nil {
+			if err == jwt.ErrSignatureInvalid {
+				ctx.Abort(401, "Unauthorized")
+			}
+			ctx.Abort(400, "Bad request")
+		}
+		if !tkn.Valid {
+			ctx.Abort(401, "Unauthorized")
 		}
 	}
 
-	beego.InsertFilter("/*", beego.BeforeRouter, FilterUser)
+	beego.InsertFilter("/*", beego.BeforeRouter, Authorize)
 	// hello-world route
 	beego.Router("/", &controllers.HelloController{}, "get:HelloWorld")
 	// Login
 	beego.Router("/login/", &controllers.LoginController{}, "post:Login")
-	// authorize
-	beego.Router("/authorize/", &controllers.LoginController{}, "post:VerifyToken")
 	// Logout
 	//beego.Router("/logout", &controllers.LoginController{}, "post:Logout")
 

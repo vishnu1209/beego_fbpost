@@ -19,30 +19,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="349d91dd-8677-437f-ae77-1c4c47b30cad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/common.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/error.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/hello.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hello_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" />
+    <list default="true" id="349d91dd-8677-437f-ae77-1c4c47b30cad" name="Default Changelist" comment="try authentication">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/awesomeProject" beforeDir="false" afterPath="$PROJECT_DIR$/awesomeProject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beego_project1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/post.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/hello.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/hello.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/login.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/post.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/reaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/reaction.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swagger/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/swagger.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/default_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/default_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +64,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
@@ -210,7 +194,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="git modules" />
+    <MESSAGE value="try authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="try authentication" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -224,6 +209,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="669" y="355" width="644" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1600149259539" />
+    <state x="172" y="127" width="1648" height="853" key="DiffContextDialog" timestamp="1601634882425">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="172" y="127" width="1648" height="853" key="DiffContextDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601634882425" />
     <state x="1220" y="408" width="216" height="268" key="EnvironmentVariablesDialog" timestamp="1600148304021">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
