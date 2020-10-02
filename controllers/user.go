@@ -13,8 +13,14 @@ type UserController struct {
 	beego.Controller
 }
 
-// GetAllUsers function gets all the users
+// @Title GetAllUsers
+// @Description Obtains all users
+// @Success 200 {object} []models.User
+// @Failure 403 body is empty
+// @router /user [get]
 func (uc *UserController) GetAllUsers() {
+	//uc.Abort("404")
+
 	fmt.Println(models.GetAllUsers())
 	uc.Data["json"] = models.GetAllUsers()
 	uc.ServeJSON()
@@ -29,11 +35,20 @@ func (uc *UserController) GetAllUsers() {
 //	}
 //}
 
-// AddNewUser adds new user
+// @Title Create New User
+// @Description Create User
+// @Success 200 {object} models.User
+// @Param   FirstName    body   string true       ""
+// @Param   LastName    body   string true       ""
+// @param 	Id	body int false
+// @Failure 400 no enough input
+// @Failure 500 get products common error
+// @router /user [get]
 func (uc *UserController) AddNewUser() {
 	var user models.User
+	//id := this.Ctx.Input.Param(":id")
 	fmt.Println(string(uc.Ctx.Input.RequestBody), user)
-	err:=json.Unmarshal(uc.Ctx.Input.RequestBody, &user)
+	err := json.Unmarshal(uc.Ctx.Input.RequestBody, &user)
 	if err != nil {
 		fmt.Println(err)
 	}

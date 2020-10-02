@@ -10,11 +10,36 @@ package routers
 import (
 	"awesomeProject/controllers"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/context"
+	"strings"
 )
 
 func init() {
+	var FilterUser = func(ctx *context.Context) {
+		//if strings.HasPrefix(ctx.Input.URL(), "/login/" ) {
+		//	return
+		//}
+		if strings.HasPrefix(ctx.Input.URL(), "/login/") ||
+			(ctx.Request.RequestURI == "/") || (ctx.Request.RequestURI == "/authorize/") {
+			// just do nothing in the filter and complete the logic in controller
+			return
+		}
+
+		_, ok := ctx.Input.Session("uid").(int)
+		if !ok {
+			ctx.Redirect(307, "/authorize/")
+		}
+	}
+
+	beego.InsertFilter("/*", beego.BeforeRouter, FilterUser)
 	// hello-world route
 	beego.Router("/", &controllers.HelloController{}, "get:HelloWorld")
+	// Login
+	beego.Router("/login/", &controllers.LoginController{}, "post:Login")
+	// authorize
+	beego.Router("/authorize/", &controllers.LoginController{}, "post:VerifyToken")
+	// Logout
+	//beego.Router("/logout", &controllers.LoginController{}, "post:Logout")
 
 	// init namespace
 	ns := beego.NewNamespace("/api/v1",
@@ -31,7 +56,6 @@ func init() {
 
 			//// delete a user
 			beego.NSRouter("/:id", &controllers.UserController{}, "delete:DeleteUser"),
-			//
 			//// Authenticate User
 			//beego.NSRouter("/login", &controllers.UserController{}, "post:Login"),
 			//// get a user with id
@@ -68,6 +92,10 @@ func init() {
 			beego.NSRouter("/:id/metrics", &controllers.ReactionController{}, "post:GetReactionMetrics"),
 			//get Post Reactions
 			beego.NSRouter(":id/reactions", &controllers.ReactionController{}, "get:GetPostReactions"),
+		),
+		beego.NSNamespace("/error",
+			// Create Error
+			beego.NSRouter("/", &controllers.ErrorController{}, "get:ErrorHandling"),
 		),
 	)
 	// register namespace

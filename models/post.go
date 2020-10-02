@@ -61,7 +61,6 @@ func UpdatePost(post Post) *Post {
 			o.Read(&UpdatedPost)
 		}
 	}
-
 	return &UpdatedPost
 }
 

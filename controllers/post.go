@@ -7,14 +7,14 @@ import (
 	"github.com/astaxie/beego"
 	"strconv"
 )
+
 // Post API
 type PostController struct {
 	beego.Controller
 }
 
-
 // @Title GetAllPosts
-// @Description Get Posts list
+// @Description Get Post list
 // @Success 200 {object} models.post.GetAllPosts
 // @Failure 400 no enough input
 // @Failure 500 get posts common error
@@ -44,32 +44,32 @@ func (pc *PostController) AddNewPost() {
 	pc.ServeJSON()
 
 	/*
-	To provide output
-	data, err := json.MarshalIndent(models.GetAllPosts(),"","   ")
-		fmt.Println(string(data), err)
+		To provide output
+		data, err := json.MarshalIndent(models.GetAllPosts(),"","   ")
+			fmt.Println(string(data), err)
 
-	To read input
-	var v interface{}
+		To read input
+		var v interface{}
 
-		json.Unmarshal(pc.Ctx.Input.RequestBody, &v)
-		data := v.(map[string]interface{})
-		fmt.Println(data)
-		for k, v := range data {
-			switch v := v.(type) {
-			case string:
-				fmt.Println(k, v, "(string)")
-			case float64:
-				fmt.Println(k, v, "(float64)")
-			case []interface{}:
-				fmt.Println(k, "(array):")
-				for i, u := range v {
-					fmt.Println("    ", i, u)
+			json.Unmarshal(pc.Ctx.Input.RequestBody, &v)
+			data := v.(map[string]interface{})
+			fmt.Println(data)
+			for k, v := range data {
+				switch v := v.(type) {
+				case string:
+					fmt.Println(k, v, "(string)")
+				case float64:
+					fmt.Println(k, v, "(float64)")
+				case []interface{}:
+					fmt.Println(k, "(array):")
+					for i, u := range v {
+						fmt.Println("    ", i, u)
+					}
+				default:
+					fmt.Println(k, v, "(unknown)")
 				}
-			default:
-				fmt.Println(k, v, "(unknown)")
 			}
-		}
-	 */
+	*/
 
 }
 
@@ -100,8 +100,10 @@ func (pc *PostController) UpdatePost() {
 }
 
 func (pc *PostController) GetPost() {
+	// id := this.Ctx.Input.Param(":id")
+
 	id, _ := strconv.Atoi(pc.Ctx.Input.Param(":id"))
-	data, err := json.MarshalIndent(models.GetPostDetails(id),"","   ")
+	data, err := json.MarshalIndent(models.GetPostDetails(id), "", "   ")
 	fmt.Println(string(data), err)
 	pc.Data["json"] = models.GetPostDetails(id)
 	pc.ServeJSON()
@@ -109,7 +111,7 @@ func (pc *PostController) GetPost() {
 
 func (pc *PostController) GetUserPosts() {
 	id, _ := strconv.Atoi(pc.Ctx.Input.Param(":id"))
-	data, err := json.MarshalIndent(models.GetUserPostDetails(id),"","   ")
+	data, err := json.MarshalIndent(models.GetUserPostDetails(id), "", "   ")
 	fmt.Println(string(data), err)
 	pc.Data["json"] = models.GetUserPostDetails(id)
 	pc.ServeJSON()

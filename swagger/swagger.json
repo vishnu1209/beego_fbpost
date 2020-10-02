@@ -14,8 +14,12 @@
         }
     },
     "basePath": "/api/v1",
-    "paths": null,
+    "paths": "/user",
     "definitions": {
+        "models.User": {
+            "title": "User",
+            "type": "object"
+        },
         "models.post.GetAllPosts": {
             "title": "GetAllPosts",
             "type": "object"

@@ -12,6 +12,9 @@ info:
 basePath: /api/v1
 paths: {}
 definitions:
+  models.User:
+    title: User
+    type: object
   models.post.GetAllPosts:
     title: GetAllPosts
     type: object

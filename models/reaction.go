@@ -3,7 +3,6 @@ package models
 import (
 	"fmt"
 	"github.com/astaxie/beego/orm"
-	"reflect"
 )
 
 type Reaction struct {
@@ -23,7 +22,6 @@ type ReactionRequestBody struct {
 }
 
 func init() {
-	fmt.Println("type:", reflect.TypeOf(Reaction{}))
 	orm.RegisterModel(new(Reaction))
 }
 
