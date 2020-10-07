@@ -9,6 +9,7 @@ package routers
 
 import (
 	"awesomeProject/controllers"
+	"errors"
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
@@ -25,6 +26,18 @@ type Claims struct {
 var jwtKey = []byte("my_secret_key")
 
 func init() {
+	//var Auth = func(w http.ResponseWriter, r *http.Request) (err error){
+	//	_, err = ioutil.ReadAll(r.Body)
+	//	if err != nil {
+	//		log.Printf("Error reading body: %v", err)
+	//		http.Error(w, "can't read body", http.StatusBadRequest)
+	//		return err
+	//	}
+	//	return nil
+	//}
+	//var Validate = func(token jwt.Token, tknstr string) (err error){
+	//	claims :=&Claims{}
+	//}
 	var Authorize = func(ctx *context.Context) {
 		//if strings.HasPrefix(ctx.Input.URL(), "/login/" ) {
 		//	return
@@ -50,15 +63,23 @@ func init() {
 		fmt.Println(tkn, 2)
 		if err != nil {
 			if err == jwt.ErrSignatureInvalid {
+				MyErr := errors.New("401: Unauthorized")
+				fmt.Println(MyErr)
+				ctx.Output.SetStatus(401)
 				ctx.Abort(401, "Unauthorized")
 			}
+			MyErr := errors.New("400: BadRequest")
+			fmt.Println(MyErr)
 			ctx.Abort(400, "Bad request")
 		}
 		if !tkn.Valid {
+			MyErr := errors.New("401: Unauthorized")
+			fmt.Println(MyErr)
 			ctx.Abort(401, "Unauthorized")
 		}
 	}
 
+	//beego.InsertFilter("/*", beego.BeforeRouter, Auth)
 	beego.InsertFilter("/*", beego.BeforeRouter, Authorize)
 	// hello-world route
 	beego.Router("/", &controllers.HelloController{}, "get:HelloWorld")
@@ -122,6 +143,12 @@ func init() {
 		beego.NSNamespace("/error",
 			// Create Error
 			beego.NSRouter("/", &controllers.ErrorController{}, "get:ErrorHandling"),
+		),
+		beego.NSNamespace("/reply",
+			// create Reply
+			beego.NSRouter("/", &controllers.ReplyController{}, "post:CreateReply"),
+			//Get All replies of a comment
+			beego.NSRouter("/:CommentId", &controllers.ReplyController{}, "get:GetRepliesOfComment"),
 		),
 	)
 	// register namespace

@@ -19,13 +19,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="349d91dd-8677-437f-ae77-1c4c47b30cad" name="Default Changelist" comment="try authentication">
+    <list default="true" id="349d91dd-8677-437f-ae77-1c4c47b30cad" name="Default Changelist" comment="add authentication">
+      <change afterPath="$PROJECT_DIR$/controllers/reply.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/reply.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/awesomeProject" beforeDir="false" afterPath="$PROJECT_DIR$/awesomeProject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/hello.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/hello.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/post.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/post.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swagger/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hello_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hello_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,69 +87,69 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestHello in awesomeProject">
-    <configuration name="TestHello in awesomeProject (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestUser in awesomeProject/tests (1)">
+    <configuration name="TestUser in awesomeProject/tests (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/tests" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="awesomeProject" />
+      <package value="awesomeProject/tests" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestHello\E$" />
+      <pattern value="^\QTestUser\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestHello in awesomeProject (3)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUser in awesomeProject/tests (3)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/tests" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="awesomeProject" />
+      <package value="awesomeProject/tests" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestHello\E$" />
+      <pattern value="^\QTestUser\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestHello in awesomeProject (4)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUser in awesomeProject/tests (4)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/tests" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="awesomeProject" />
+      <package value="awesomeProject/tests" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestHello\E$" />
+      <pattern value="^\QTestUser\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestHello in awesomeProject (5)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUser in awesomeProject/tests (5)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/tests" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="awesomeProject" />
+      <package value="awesomeProject/tests" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestHello\E$" />
+      <pattern value="^\QTestUser\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestHello in awesomeProject" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUser in awesomeProject/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/tests" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="awesomeProject" />
+      <package value="awesomeProject/tests" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestHello\E$" />
+      <pattern value="^\QTestUser\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestHello in awesomeProject" />
-        <item itemvalue="Go Test.TestHello in awesomeProject (5)" />
-        <item itemvalue="Go Test.TestHello in awesomeProject (4)" />
-        <item itemvalue="Go Test.TestHello in awesomeProject (3)" />
-        <item itemvalue="Go Test.TestHello in awesomeProject (2)" />
+        <item itemvalue="Go Test.TestUser in awesomeProject/tests (1)" />
+        <item itemvalue="Go Test.TestUser in awesomeProject/tests" />
+        <item itemvalue="Go Test.TestUser in awesomeProject/tests (5)" />
+        <item itemvalue="Go Test.TestUser in awesomeProject/tests (4)" />
+        <item itemvalue="Go Test.TestUser in awesomeProject/tests (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -195,12 +202,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git modules" />
     <MESSAGE value="try authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="try authentication" />
+    <MESSAGE value="add authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="add authentication" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
+    <state x="625" y="235" width="732" height="644" key="#Inspections" timestamp="1601640183512">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="625" y="235" width="732" height="644" key="#Inspections/72.27.1848.1053@72.27.1848.1053" timestamp="1601640183512" />
     <state x="454" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601101237579">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -209,10 +221,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="669" y="355" width="644" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1600149259539" />
-    <state x="172" y="127" width="1648" height="853" key="DiffContextDialog" timestamp="1601634882425">
+    <state x="172" y="127" width="1648" height="853" key="DiffContextDialog" timestamp="1601719740586">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="172" y="127" width="1648" height="853" key="DiffContextDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601634882425" />
+    <state x="172" y="127" width="1648" height="853" key="DiffContextDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601719740586" />
     <state x="1220" y="408" width="216" height="268" key="EnvironmentVariablesDialog" timestamp="1600148304021">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -229,22 +241,38 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="702" y="422" width="578" height="269" key="Github.CreatePullRequestDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601100727918" />
-    <state width="1802" height="286" key="GridCell.Tab.0.bottom" timestamp="1601284366045">
+    <state width="1802" height="344" key="GridCell.Tab.0.bottom" timestamp="1602043555652">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="286" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1601284366045" />
-    <state width="1802" height="286" key="GridCell.Tab.0.center" timestamp="1601284366045">
+    <state width="1802" height="344" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1602043555652" />
+    <state width="1802" height="344" key="GridCell.Tab.0.center" timestamp="1602043555652">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="286" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1601284366045" />
-    <state width="1802" height="286" key="GridCell.Tab.0.left" timestamp="1601284366044">
+    <state width="1802" height="344" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1602043555652" />
+    <state width="1802" height="344" key="GridCell.Tab.0.left" timestamp="1602043555651">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="286" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1601284366044" />
-    <state width="1802" height="286" key="GridCell.Tab.0.right" timestamp="1601284366045">
+    <state width="1802" height="344" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1602043555651" />
+    <state width="1802" height="344" key="GridCell.Tab.0.right" timestamp="1602043555652">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="286" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1601284366045" />
+    <state width="1802" height="344" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1602043555652" />
+    <state width="1802" height="390" key="GridCell.Tab.1.bottom" timestamp="1602000995529">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="390" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1602000995529" />
+    <state width="1802" height="390" key="GridCell.Tab.1.center" timestamp="1602000995529">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="390" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1602000995529" />
+    <state width="1802" height="390" key="GridCell.Tab.1.left" timestamp="1602000995529">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="390" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1602000995529" />
+    <state width="1802" height="390" key="GridCell.Tab.1.right" timestamp="1602000995529">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="390" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1602000995529" />
     <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1601096979214">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -257,26 +285,26 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="787" y="130" width="1022" height="737" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1601102663161" />
-    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601104816695">
+    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601640242230">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1601104816695" />
+    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1601640242230" />
     <state x="172" y="127" width="1648" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600513828900">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="172" y="127" width="1648" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600513828900" />
-    <state x="606" y="167" width="770" height="780" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600418005168">
+    <state x="606" y="167" width="770" height="780" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601721938911">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="606" y="167" width="770" height="780" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1600418005168" />
+    <state x="606" y="167" width="770" height="780" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1601721938911" />
     <state x="777" y="468" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601098734964">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="777" y="468" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.1053@72.27.1848.1053" timestamp="1601098734964" />
-    <state x="687" y="118" width="618" height="870" key="find.popup" timestamp="1601619788889">
+    <state x="687" y="118" width="618" height="870" key="find.popup" timestamp="1602001184772">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="687" y="118" width="618" height="870" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1601619788889" />
+    <state x="687" y="118" width="618" height="870" key="find.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1602001184772" />
     <state x="1178" y="454" width="550" height="206" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1601102648580">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

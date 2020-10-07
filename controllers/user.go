@@ -13,16 +13,21 @@ type UserController struct {
 	beego.Controller
 }
 
-// @Title GetAllUsers
-// @Description Obtains all users
-// @Success 200 {object} []models.User
-// @Failure 403 body is empty
-// @router /user [get]
+//@Title GetAllUsers
+//@Description Obtains all users
+//@Success 200 {object} []models.User
+//@Failure 403 body is empty
+//@router /user [get]
 func (uc *UserController) GetAllUsers() {
 	//uc.Abort("404")
 
 	fmt.Println(models.GetAllUsers())
-	uc.Data["json"] = models.GetAllUsers()
+	data, err := models.GetAllUsers()
+	if err != nil {
+		uc.Data["json"] = err.Error()
+	} else {
+		uc.Data["json"] = data
+	}
 	uc.ServeJSON()
 }
 

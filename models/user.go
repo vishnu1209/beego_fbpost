@@ -17,15 +17,14 @@ func init() {
 }
 
 // GetAllUsers function gets all users
-func GetAllUsers() []*User {
+func GetAllUsers() (users []*User, err error) {
 	o := orm.NewOrm()
-	var users []*User
 	num, err := o.QueryTable("User").All(&users)
 	//fmt.Println(num, users)
 	if num > 0 && err != orm.ErrNoRows {
-		return users
+		return users, nil
 	} else {
-		return nil
+		return nil, err
 	}
 }
 
@@ -34,6 +33,9 @@ func InsertOneUser(user *User) (id int64, err error) {
 	o := orm.NewOrm()
 	fmt.Println(*user)
 	id, err = o.Insert(user)
+	if err != nil {
+		return 0, err
+	}
 
 	//qs := o.QueryTable(new(User))
 	//

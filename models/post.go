@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
@@ -35,7 +36,7 @@ func GetAllPosts() []*Post {
 }
 
 func CreateNewPost(PostRequestBody *PostRequestBody) (Id int64, err error) {
-	fmt.Println("in here")
+	beego.Info("Creating new post")
 	o := orm.NewOrm()
 	var user User
 	o.QueryTable("User").Filter("Id", PostRequestBody.PostedById).One(&user)
@@ -81,7 +82,7 @@ type PostDetails struct {
 	PostedBy      User          `json:"posted_by"`
 	PostedAt      string        `json:"posted_at"`
 	PostContent   string        `json:"post_content"`
-	Reactions     interface{}   `json:"reactions"`
+	Reactions     Reactions     `json:"reactions"`
 	Comments      []CommentDict `json:"comments"`
 	CommentsCount int64         `json:"comments_count"`
 }
@@ -92,22 +93,36 @@ type Reactions struct {
 }
 
 type CommentDict struct {
-	Id             int       `json:"comment_id"`
-	CommentedBy    User      `json:"commenter"`
-	CommentedAt    string    `json:"commented_at"`
-	CommentContent string    `json:"comment_content"`
-	ReactionsDict  Reactions `json:"reactions"`
+	Id             int         `json:"comment_id"`
+	CommentedBy    User        `json:"commenter"`
+	CommentedAt    string      `json:"commented_at"`
+	CommentContent string      `json:"comment_content"`
+	ReactionsDict  Reactions   `json:"reactions"`
+	Replies        []ReplyDict `json:"replies"`
+	RepliesCount   int64       `json:"replies_count"`
 }
 
-func GetPostDetails(id int) PostDetails {
+type ReplyDict struct {
+	Id           int64  `json:"comment_id"`
+	RepliedBy    User   `json:"commenter"`
+	RepliedAt    string `json:"commented_at"`
+	ReplyContent string `json:"comment_content"`
+}
+
+func GetPostDetails(id int) (PostDetails, error) {
 	o := orm.NewOrm()
 	qs := o.QueryTable("Post")
 	var post Post
-	qs.Filter("Id", id).One(&post)
+	InvalidPostId := qs.Filter("Id", id).One(&post)
+	if InvalidPostId != nil {
+		return PostDetails{}, InvalidPostId
+	}
 	qs = o.QueryTable("User")
 	var user User
-	qs.Filter("Id", post.PostedBy.Id).One(&user)
-
+	InvalidUserId := qs.Filter("Id", post.PostedBy.Id).One(&user)
+	if InvalidUserId != nil {
+		return PostDetails{}, InvalidUserId
+	}
 	var PostReactionsList []*Reaction
 	var ReactionsList []string
 	PostReactionsCount, _ := o.QueryTable("Reaction").Filter("Post", post).All(&PostReactionsList, "ReactionType")
@@ -121,10 +136,12 @@ func GetPostDetails(id int) PostDetails {
 
 	ListOfComments := []CommentDict{}
 	for i := 0; i < len(comments); i++ {
+		beego.Info("Comment dict")
 		var CommentReactions []*Reaction
 		var CommentReactionTypesList []string
 		CommentReactionCount, _ := o.QueryTable("Reaction").Filter("Comment", comments[i]).All(&CommentReactions, "ReactionType")
 		for i := 0; i < len(CommentReactions); i++ {
+			beego.Info("Comment Reactions")
 			CommentReactionTypesList = append(CommentReactionTypesList, CommentReactions[i].ReactionType)
 		}
 		CommentReactionsDict := Reactions{Count: CommentReactionCount, Reactions: CommentReactionTypesList}
@@ -132,12 +149,31 @@ func GetPostDetails(id int) PostDetails {
 		qs = o.QueryTable("User")
 		qs.Filter("Id", comments[i].CommentedBy.Id).One(&CommentedUser)
 
+		var CommentReplies []*Reply
+		CommentRepliesCount, _ := o.QueryTable("Reply").Filter("RepliedFor", comments[i].Id).All(&CommentReplies)
+		CommentRepliesList := []ReplyDict{}
+		for ReplyNumber := 0; ReplyNumber < len(CommentReplies); ReplyNumber++ {
+			var RepliedBy User
+			o.QueryTable("User").Filter("Id", CommentReplies[ReplyNumber].RepliedBy.Id).One(&RepliedBy)
+			beego.Info("Comment Replies")
+
+			ReplyD := ReplyDict{
+				Id:           CommentReplies[ReplyNumber].Id,
+				RepliedBy:    RepliedBy,
+				RepliedAt:    CommentReplies[ReplyNumber].RepliedAt,
+				ReplyContent: CommentReplies[ReplyNumber].ReplyContent,
+			}
+			CommentRepliesList = append(CommentRepliesList, ReplyD)
+		}
+
 		CommentD := CommentDict{
 			Id:             comments[i].Id,
 			CommentedBy:    CommentedUser,
 			CommentedAt:    comments[i].CommentedAt,
 			CommentContent: comments[i].CommentContent,
 			ReactionsDict:  CommentReactionsDict,
+			Replies:        CommentRepliesList,
+			RepliesCount:   CommentRepliesCount,
 		}
 		ListOfComments = append(ListOfComments, CommentD)
 	}
@@ -152,18 +188,23 @@ func GetPostDetails(id int) PostDetails {
 		Comments:      ListOfComments,
 		CommentsCount: CommentsCount,
 	}
-	return PostDict
+	return PostDict, nil
 }
 
-func GetUserPostDetails(id int) []PostDetails {
+func GetUserPostDetails(id int) ([]PostDetails, error) {
 	o := orm.NewOrm()
 	var user User
-	o.QueryTable("User").Filter("Id", id).One(&user)
+	InvalidUserId := o.QueryTable("User").Filter("Id", id).One(&user)
+	fmt.Println(InvalidUserId)
+	if InvalidUserId != nil {
+		return []PostDetails{}, InvalidUserId
+	}
 	var posts []*Post
 	o.QueryTable("Post").Filter("PostedBy", user).All(&posts)
 	var UserPostDetails []PostDetails
 	for i := 0; i < len(posts); i++ {
-		UserPostDetails = append(UserPostDetails, GetPostDetails(posts[i].Id))
+		PostDetails, _ := GetPostDetails(posts[i].Id)
+		UserPostDetails = append(UserPostDetails, PostDetails)
 	}
-	return UserPostDetails
+	return UserPostDetails, nil
 }

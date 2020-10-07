@@ -103,16 +103,28 @@ func (pc *PostController) GetPost() {
 	// id := this.Ctx.Input.Param(":id")
 
 	id, _ := strconv.Atoi(pc.Ctx.Input.Param(":id"))
-	data, err := json.MarshalIndent(models.GetPostDetails(id), "", "   ")
+	PostDetails, err := models.GetPostDetails(id)
+	data, err := json.MarshalIndent(PostDetails, "", "   ")
 	fmt.Println(string(data), err)
-	pc.Data["json"] = models.GetPostDetails(id)
+	if err != nil {
+		fmt.Println(err)
+		pc.Data["json"] = err.Error()
+	} else {
+		pc.Data["json"] = PostDetails
+	}
 	pc.ServeJSON()
 }
 
 func (pc *PostController) GetUserPosts() {
 	id, _ := strconv.Atoi(pc.Ctx.Input.Param(":id"))
-	data, err := json.MarshalIndent(models.GetUserPostDetails(id), "", "   ")
+	UserPostDetails, err := models.GetUserPostDetails(id)
+	data, _ := json.MarshalIndent(UserPostDetails, "", "   ")
 	fmt.Println(string(data), err)
-	pc.Data["json"] = models.GetUserPostDetails(id)
+	if err != nil {
+		fmt.Println(err)
+		pc.Data["json"] = err.Error()
+	} else {
+		pc.Data["json"] = UserPostDetails
+	}
 	pc.ServeJSON()
 }
