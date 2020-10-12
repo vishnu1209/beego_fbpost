@@ -1,8 +1,10 @@
 package models
 
 import (
+	"awesomeProject/db"
 	"fmt"
 	"github.com/astaxie/beego/orm"
+	"github.com/stretchr/testify/mock"
 )
 
 // User represents a person in the system
@@ -12,8 +14,29 @@ type User struct {
 	LastName  string
 }
 
+//type Storage interface {
+//	CreateUser(user *User) (id int64, err error)
+//}
+//
+//func NewStorage(db *sql.DB) Storage {
+//	return &defaultStorage{db: db}
+//}
+//
+//type defaultStorage struct {
+//	db *sql.DB
+//}
+
 func init() {
 	orm.RegisterModel(new(User))
+}
+
+//type NewOrm struct {
+//	DB db.OrmDB
+//	//DB *gorm.DB
+//}
+
+type OrmDB struct {
+	mock.Mock
 }
 
 // GetAllUsers function gets all users
@@ -28,8 +51,12 @@ func GetAllUsers() (users []*User, err error) {
 	}
 }
 
+type MockDB struct {
+	db db.OrmDB
+}
+
 // InsertOneUser inserts a single new User record
-func InsertOneUser(user *User) (id int64, err error) {
+func CreateUser(user *User) (id int64, err error) {
 	o := orm.NewOrm()
 	fmt.Println(*user)
 	id, err = o.Insert(user)

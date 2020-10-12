@@ -58,7 +58,7 @@ func (uc *UserController) AddNewUser() {
 		fmt.Println(err)
 	}
 	fmt.Println(1, user, 1)
-	if id, err := models.InsertOneUser(&user); err == nil {
+	if id, err := models.CreateUser(&user); err == nil {
 		uc.Data["json"] = map[string]int64{"UserId": id}
 	} else {
 		uc.Data["json"] = err.Error()

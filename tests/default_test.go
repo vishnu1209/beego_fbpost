@@ -1,4 +1,4 @@
-package test
+package mainTest
 
 import (
 	_ "awesomeProject/common"
