@@ -4,7 +4,6 @@ import (
 	"awesomeProject/db"
 	"fmt"
 	"github.com/astaxie/beego/orm"
-	"github.com/stretchr/testify/mock"
 )
 
 // User represents a person in the system
@@ -35,21 +34,27 @@ func init() {
 //	//DB *gorm.DB
 //}
 
-type OrmDB struct {
-	mock.Mock
+type DB interface {
+	QueryTable(name string) orm.QuerySeter
+	All() orm.QuerySeter
+}
+
+type Database struct {
+	o db.OrmDB
 }
 
 // GetAllUsers function gets all users
-func GetAllUsers() (users []*User, err error) {
-	o := orm.NewOrm()
-	num, err := o.QueryTable("User").All(&users)
-	//fmt.Println(num, users)
-	if num > 0 && err != orm.ErrNoRows {
-		return users, nil
-	} else {
-		return nil, err
-	}
-}
+//func GetAllUsers() (users []*User, err error) {
+//	o := rb.o
+//
+//	num, err := o.QueryTable("User").All(&users)
+//	//fmt.Println(num, users)
+//	if num > 0 && err != orm.ErrNoRows {
+//		return users, nil
+//	} else {
+//		return nil, err
+//	}
+//}
 
 type MockDB struct {
 	db db.OrmDB

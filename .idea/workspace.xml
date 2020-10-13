@@ -19,21 +19,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="349d91dd-8677-437f-ae77-1c4c47b30cad" name="Default Changelist" comment="add reply">
-      <change afterPath="$PROJECT_DIR$/db/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/service_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/stretchr_test.go" afterDir="false" />
+    <list default="true" id="349d91dd-8677-437f-ae77-1c4c47b30cad" name="Default Changelist" comment="mock db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/awesomeProject" beforeDir="false" afterPath="$PROJECT_DIR$/awesomeProject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beego_project" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/default_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/default_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/hello_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hello_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/service_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/service_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,18 +81,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestMockMethodWithoutArgs in awesomeProject/tests (1)">
-    <configuration name="TestGetAllUsers in awesomeProject/tests (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="awesomeProject" />
-      <working_directory value="$PROJECT_DIR$/tests" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="awesomeProject/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestGetAllUsers\E$" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go Test.TestMockMethodWithoutArgs in awesomeProject/tests (3)">
     <configuration name="TestGetAllUsers in awesomeProject/tests (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject" />
       <working_directory value="$PROJECT_DIR$/tests" />
@@ -112,7 +93,7 @@
       <pattern value="^\QTestGetAllUsers\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestGetAllUsers in awesomeProject/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMockMethodWithoutArgs in awesomeProject/tests (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject" />
       <working_directory value="$PROJECT_DIR$/tests" />
       <framework value="gotest" />
@@ -120,10 +101,21 @@
       <package value="awesomeProject/tests" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestGetAllUsers\E$" />
+      <pattern value="^\QTestMockMethodWithoutArgs\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestMockMethodWithoutArgs in awesomeProject/tests (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMockMethodWithoutArgs in awesomeProject/tests (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="awesomeProject" />
+      <working_directory value="$PROJECT_DIR$/tests" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="awesomeProject/tests" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestMockMethodWithoutArgs\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestMockMethodWithoutArgs in awesomeProject/tests (3)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="awesomeProject" />
       <working_directory value="$PROJECT_DIR$/tests" />
       <framework value="gotest" />
@@ -147,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestMockMethodWithoutArgs in awesomeProject/tests (3)" />
+        <item itemvalue="Go Test.TestMockMethodWithoutArgs in awesomeProject/tests (2)" />
         <item itemvalue="Go Test.TestMockMethodWithoutArgs in awesomeProject/tests (1)" />
         <item itemvalue="Go Test.TestMockMethodWithoutArgs in awesomeProject/tests" />
         <item itemvalue="Go Test.TestGetAllUsers in awesomeProject/tests (2)" />
-        <item itemvalue="Go Test.TestGetAllUsers in awesomeProject/tests (1)" />
-        <item itemvalue="Go Test.TestGetAllUsers in awesomeProject/tests" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +198,8 @@
     <MESSAGE value="try authentication" />
     <MESSAGE value="add authentication" />
     <MESSAGE value="add reply" />
-    <option name="LAST_COMMIT_MESSAGE" value="add reply" />
+    <MESSAGE value="mock db" />
+    <option name="LAST_COMMIT_MESSAGE" value="mock db" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -244,22 +237,22 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="702" y="422" width="578" height="269" key="Github.CreatePullRequestDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1601100727918" />
-    <state width="1802" height="322" key="GridCell.Tab.0.bottom" timestamp="1602339130331">
+    <state width="1802" height="99" key="GridCell.Tab.0.bottom" timestamp="1602480487326">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="322" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1602339130331" />
-    <state width="1802" height="322" key="GridCell.Tab.0.center" timestamp="1602339130330">
+    <state width="1802" height="99" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1602480487326" />
+    <state width="1802" height="99" key="GridCell.Tab.0.center" timestamp="1602480487326">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="322" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1602339130330" />
-    <state width="1802" height="322" key="GridCell.Tab.0.left" timestamp="1602339130330">
+    <state width="1802" height="99" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1602480487326" />
+    <state width="1802" height="99" key="GridCell.Tab.0.left" timestamp="1602480487326">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="322" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1602339130330" />
-    <state width="1802" height="322" key="GridCell.Tab.0.right" timestamp="1602339130331">
+    <state width="1802" height="99" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1602480487326" />
+    <state width="1802" height="99" key="GridCell.Tab.0.right" timestamp="1602480487326">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="322" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1602339130331" />
+    <state width="1802" height="99" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1602480487326" />
     <state width="1802" height="390" key="GridCell.Tab.1.bottom" timestamp="1602000995529">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -288,10 +281,10 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="787" y="130" width="1022" height="737" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1602340430521" />
-    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602049636312">
+    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602474591139">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1602049636312" />
+    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1602474591139" />
     <state x="172" y="127" width="1648" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600513828900">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

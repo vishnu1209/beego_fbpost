@@ -11,11 +11,11 @@ type db struct{}
 /*
 scenario:
 Greet and GreetInDefaultMsg uses greeter
-greeter had DB as attribute and DB has Fetchmsg and fetchdefaultmsg functions
+greeter has DB as attribute and DB has Fetchmsg and fetchdefaultmsg functions
 
 what we do:
 Mock DB
-mock Fetchmsg and fetchdefaultmsg
+mock Fetchmsg and Fetchdefaultmsg
 */
 
 type DB interface {

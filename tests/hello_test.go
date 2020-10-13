@@ -2,8 +2,11 @@ package mainTest
 
 import (
 	_ "awesomeProject/common"
+	mocks "awesomeProject/mocks/db"
 	"awesomeProject/models"
+	"github.com/astaxie/beego/orm"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -22,16 +25,22 @@ func TestHello(t *testing.T) {
 	}
 }
 
-//func TestGetAllUsers(t *testing.T) {
-//	assert := assert.New(t)
-//	t.Run("should return data", func(t *testing.T) {
-//		testDb := new(mocks.OrmDB)
-//		testDb.On("GetAllUsers").Return(nil)
-//		assert.Equal(t, "Message is: foofofofof", models.GetAllUsers())
-//		testDb.AssertNumberOfCalls(t, "GetAllUsers", 1)
-//		testDb.AssertExpectations(t)
-//	})
-//}
+func init() {
+	orm.RegisterDriver("sqlite3", orm.DRSqlite)
+	orm.RegisterDataBase("default", "sqlite3", "file:data.db")
+}
+
+func TestGetAllUsers(t *testing.T) {
+
+	assert := assert.New(t)
+	t.Run("should return data", func(t *testing.T) {
+		testDb := new(mocks.OrmDB)
+		testDb.On("GetAllUsers").Return(nil)
+		//assert.Equal(t, "Message is: foofofofof", models.GetAllUsers())
+		testDb.AssertNumberOfCalls(t, "GetAllUsers", 1)
+		testDb.AssertExpectations(t)
+	})
+}
 
 /*
 type MockDB struct {

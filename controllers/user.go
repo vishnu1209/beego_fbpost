@@ -20,15 +20,18 @@ type UserController struct {
 //@router /user [get]
 func (uc *UserController) GetAllUsers() {
 	//uc.Abort("404")
-
-	fmt.Println(models.GetAllUsers())
-	data, err := models.GetAllUsers()
-	if err != nil {
-		uc.Data["json"] = err.Error()
-	} else {
-		uc.Data["json"] = data
-	}
-	uc.ServeJSON()
+	//db = models.RequestBody{
+	//	o: orm.NewOrm(),
+	//}
+	//	fmt.Println(models.GetUsers())
+	//	data, err := models.GetAllUsers()
+	//	if err != nil {
+	//		uc.Data["json"] = err.Error()
+	//	} else {
+	//		uc.Data["json"] = data
+	//	}
+	//	uc.ServeJSON()
+	//}
 }
 
 //
